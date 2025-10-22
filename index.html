@@ -4,7 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consultoria</title>
+    
+    <!-- Fonte Inter do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Link do Font Awesome (para ícones do rodapé) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Seu CSS (agora com o header.css importado dentro dele) -->
     <link rel="stylesheet" href="./css/style.css">
+    
+    <!-- Boxicons (mantido caso use em outro lugar) -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
@@ -14,6 +26,7 @@
 
     <nav id="main-nav" class="main-nav">
 
+        <!-- Menu Desktop (visível acima de 600px) -->
         <nav class="menu-desktop">
             <a href="#sobre">Sobre nós</a>
             <a href="#servicos">Serviços</a>
@@ -22,20 +35,25 @@
             <button class="cta-button">Faça seu orçamento</button>
         </nav>
 
-        <div class="menu-wrapper">
-            <ul class="radial-nav" id="main-nav-links" style="--n: 6;">
-             <li style="--i: 1;"><a href="#" aria-label="Sobre"><i class="bx bx-user"></i></a></li>
-             <li style="--i: 2;"><a href="#" aria-label="Habilidades"><i class="bx bx-code-alt"></i></a></li>
-             <li style="--i: 3;"><a href="#" aria-label="Experiência"><i class='bx bx-briefcase-alt-2'></i></a></li>
-             <li style="--i: 4;"><a href="#" aria-label="Projetos"><i class="bx bx-folder"></i></a></li>
-             <li style="--i: 5;"><a href="#" aria-label="Certificados"><i class="bx bx-award"></i></a></li>
-             <li style="--i: 6;"><a href="#" aria-label="Contato"><i class="bx bx-envelope"></i></a></li>
+        <!-- Menu Lateral (painel que desliza, visível abaixo de 600px) -->
+        <div class="menu-wrapper" id="menu-wrapper">
+            <h3 class="menu-lateral-titulo">Menu</h3>
+            <ul class="menu-lateral-links" id="main-nav-links">
+             <li><a href="#sobre">Sobre nós</a></li>
+             <li><a href="#servicos">Serviços</a></li>
+             <li><a href="#precos">Preços</a></li>
+             <li><a href="#faq">FAQ</a></li>
            </ul>
+           <!-- CTA movido para fora da lista para melhor layout -->
+           <div class="menu-lateral-cta-wrapper">
+                <a href="#orcamento" class="cta-button-mobile">Faça seu orçamento</a>
+           </div>
         </div>
 
     </nav>
 
-    <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir Menu" aria-controls="main-nav-links" aria-expanded="false">
+    <!-- Botão Hambúrguer (visível abaixo de 600px) -->
+    <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir Menu" aria-controls="menu-wrapper" aria-expanded="false">
         <div class="hamburger-icon">
             <span></span>
             <span></span>
@@ -52,7 +70,7 @@
             <button class="button">Entrar em contato</button>
         </div>
         <div class="imagem">
-            <img src="https://unisigma.com.br/_astro/illustration-01.BEqkho5B_2jmsDN.svg" alt="Descrição da imagem">
+            <img src="https://unisigma.com.br/_astro/illustration-01.BEqkho5B_2jmsDN.svg" alt="Ilustração de negócios">
         </div>
     </section>
 
@@ -95,6 +113,7 @@
         <button data-team="gestao-pessoas">Gestão de Pessoas</button>
     </div>
 
+    <!-- Seções do Time (sem alterações) -->
     <div id="diretoria" class="team-section active">
         <div class="team-member">
             <img src="https://unisigma.com.br/_astro/mylena.Cle3WHmy.jpeg" alt="Membro 1">
@@ -214,8 +233,10 @@
     <div class="conteiner">
         <div class="rodape-conteiner">
             <div class="rodape-coluna">
-                <a href="{{ url_for('public.home') }}" class="logo">
-                    <img src="/static/img/logo-decibell.png" alt="Decibell Logo" />
+                <a href="#" class="logo">
+                    <!-- <img src="/static/img/logo-decibell.png" alt="Decibell Logo" /> -->
+                    <!-- Adicionado texto de logo provisório -->
+                    <span style="font-size: 24px; font-weight: bold; color: white;">Logo</span>
                 </a>
                 <p>Transformamos desafios em oportunidades por meio de soluções estratégicas e personalizadas</p>
                 <div class="rodape-redes-sociais">
@@ -228,9 +249,9 @@
             <div class="rodape-coluna">
                 <h3>Navegação</h3>
                 <ul>
-                    <li><a href="#tipos-fones">Estilos</a></li>
-                    <li><a href="#sobre">Sobre</a></li>
-                    <li><a href="#depoimentos">Depoimentos</a></li>
+                    <li><a href="#sobre">Sobre nós</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#precos">Preços</a></li>
                 </ul>
             </div>
             <div class="rodape-coluna">
@@ -243,13 +264,13 @@
                 </ul>
             </div>
         </div>
-        <p class="rodape-copyright">Copyright © 2025 UniSigma Consultoria </br> Todos os direitos reservados</p>
+        <p class="rodape-copyright">Copyright © 2025 UniSigma Consultoria <br> Todos os direitos reservados</p>
     </div>
 </footer>
 
 <script src="./js/index.js"></script>
-
 <script src="./js/menu.js"></script>
 
 </body>
 </html>
+

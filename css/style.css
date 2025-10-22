@@ -1,279 +1,323 @@
+/* Importa os estilos do header */
 @import url(./header.css);
 
 :root {
     --cor-primaria: #002244; 
     --cor-destaque: #f59e0b; 
     --header-altura: 70px;   
+    --cor-texto: #333;
+    --cor-texto-claro: #555;
+    --cor-fundo: #ffffff;
+    --borda-radius: 12px; /* Raio de borda padronizado */
+    --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.05); /* Sombra padronizada */
 }
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: white;
-    color: #333;
+    font-family: 'Inter', Arial, sans-serif; /* Fonte atualizada */
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
     overflow-x: hidden;
     padding-top: var(--header-altura); 
+    line-height: 1.6; /* Melhor legibilidade */
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700; /* Títulos mais destacados */
+    color: var(--cor-primaria);
+}
 
 section {
-    margin-bottom: 40px;
+    margin-bottom: 60px; /* Mais respiro entre seções */
+    padding: 0 20px; /* Padding lateral padrão */
 }
+
 .main1 {
     display: flex;
     align-items: center;
     width: 100%;
+    max-width: 1200px; /* Limita a largura máxima */
+    margin: 40px auto; /* Centraliza a seção */
+    gap: 20px;
 }
-/* ... (todo o resto do seu CSS original) ... */
+
 .main1 .text, .main1 .imagem {
     width: 50%;
     padding: 20px;
     box-sizing: border-box;
 }
+
 .main1 .text h1 {
-    font-size: 60px;
+    font-size: 52px; /* Tamanho de fonte ajustado */
     margin-bottom: 20px;
+    line-height: 1.2;
 }
+
 .main1 .text p {
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 18px; /* Tamanho de fonte ajustado */
+    margin-bottom: 30px; /* Mais espaço */
+    color: var(--cor-texto-claro);
 }
+
 .main1 .button {
-    background-color: #003366;
+    background-color: var(--cor-primaria);
     color: white;
-    padding: 22px 42px;
+    padding: 18px 36px; /* Padding ajustado */
     border: none;
-    border-radius: 10px;
-    font-size: 22px;
-    font-family: sans-serif;
+    border-radius: 8px; /* Borda alinhada */
+    font-size: 18px; /* Fonte ajustada */
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 15px rgba(0, 34, 68, 0.2);
 }
+
 .main1 .button:hover {
-    transform: scale(1.05);
-    background-color: #002244;
+    transform: scale(1.03); /* Efeito de hover mais sutil */
+    background-color: #003366; /* Escurece um pouco */
 }
+
 .main1 img {
     max-width: 100%;
     height: auto;
     display: block;
     margin: 0 auto;
-    transform: scale(1.45);
+    transform: scale(1.0); /* Removido o scale exagerado */
 }
+
 .services {
     text-align: center;
-    font-family: Arial, sans-serif;
-    color: #333;
-    margin-top: 160px;
+    font-family: 'Inter', Arial, sans-serif;
+    color: var(--cor-texto);
+    margin-top: 100px; /* Espaço ajustado */
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
+
 .services h1 {
-    font-size: 3.5rem;
-    color: #002a3b;
+    font-size: 3rem; /* Tamanho ajustado */
+    color: var(--cor-primaria);
 }
-.services p {
-    font-size: 2rem;
-    color: #666;
-    margin-bottom: 30px;
+
+.services > p { /* Seletor mais específico */
+    font-size: 1.125rem; /* 18px */
+    color: var(--cor-texto-claro);
+    margin-bottom: 40px; /* Mais espaço */
+    max-width: 700px; /* Limita largura do parágrafo */
+    margin-left: auto;
+    margin-right: auto;
 }
+
+.service-box-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Espaço entre os cards */
+}
+
 .service-box {
     background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 15px;
+    border: none; /* Borda removida */
+    border-radius: var(--borda-radius);
     padding: 30px;
-    margin: 15px;
-    display: inline-block;
-    width: 400px;
+    margin: 0; /* Removido margin, usando gap */
+    width: 350px; /* Largura fixa para alinhamento */
     height: 400px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--sombra-suave);
     transition: transform 0.3s, box-shadow 0.3s;
     text-align: left;
+    display: flex;
+    flex-direction: column; /* Organiza conteúdo interno */
 }
+
 .service-box:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Sombra mais forte no hover */
 }
+
 .service-header {
-    background-color: orange;
-    padding: 10px;
-    border-radius: 10px 10px 0 0;
-    margin: -20px -20px 10px -20px;
+    background-color: var(--cor-destaque);
+    padding: 10px 20px;
+    border-radius: 8px; /* Borda ajustada */
+    margin: -30px -30px 15px -30px; /* Ajusta para preencher topo */
     text-align: center;
 }
+
 .service-header h2 {
     margin: 0;
     color: white;
     font-size: 1.2rem;
+    font-weight: 700;
 }
+
 .service-box a {
     display: inline-block;
-    font-size: 1.4rem;
-    color: #333;
+    font-size: 1.1rem; /* 18px */
+    color: var(--cor-primaria);
     text-decoration: none;
     margin: 15px 0;
     transition: color 0.3s;
-    font-weight: 600;
+    font-weight: 500;
     position: relative;
-    overflow: hidden;
 }
-.service-box a::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: #002a3b;
-    transition: width 0.5s ease;
-}
+
 .service-box a:hover {
-    color: #002a3b;
+    color: var(--cor-destaque);
 }
-.service-box a:hover::after {
-    width: 100%;
-}
+
 .service-box img {
     display: block;
-    margin: 0 auto;
-    margin-top: 20px;
+    margin: auto 0 0 0; /* Alinha imagem ao fundo */
     max-width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 10px;
+    height: 250px; /* Altura ajustada */
+    object-fit: contain; /* Evita distorção */
+    border-radius: 8px;
 }
+
 .main3 {
     max-width: 1200px;
-    margin: 40px auto;
+    margin: 60px auto;
     text-align: center;
     padding: 0 20px;
 }
+
 .main3 h1 {
-    font-size: 48px;
+    font-size: 3rem; /* 48px */
     font-weight: 700;
-    color: #0b2535;
-    margin-bottom: 10px;
+    color: var(--cor-primaria);
+    margin-bottom: 15px;
 }
+
 .main3 > p {
-    font-size: 18px;
-    color: #3c4a57;
+    font-size: 1.125rem; /* 18px */
+    color: var(--cor-texto-claro);
     margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
+
 .team-buttons {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    gap: 12px;
     margin-bottom: 40px;
 }
+
 .team-buttons button {
     background-color: white;
-    color: #0b2535;
-    border: 1.5px solid #0b2535;
-    border-radius: 40px;
-    padding: 12px 24px;
-    font-size: 16px;
+    color: var(--cor-primaria);
+    border: 1px solid #ddd;
+    border-radius: 9999px; /* Formato de pílula */
+    padding: 10px 22px;
+    font-size: 15px;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0px 3px 0px #0b2535;
+    box-shadow: none; /* Sombra removida */
 }
+
 .team-buttons button.active {
-    background-color: #00a7e1;
+    background-color: var(--cor-primaria);
     color: white;
-    box-shadow: 0px 3px 0px #066385;
-    border-color: #00a7e1;
+    border-color: var(--cor-primaria);
+    box-shadow: none;
 }
-.team-buttons button:hover {
+
+.team-buttons button:hover:not(.active) {
     transform: translateY(-2px);
+    background-color: #f8f8f8;
+    border-color: #ccc;
 }
+
 .team-section {
     display: none;
     flex-wrap: wrap;
     justify-content: center;
     gap: 24px;
 }
+
 .team-section.active {
     display: flex;
 }
+
 .team-member {
     width: 280px;
     background-color: white;
-    border-radius: 20px;
+    border-radius: var(--borda-radius);
     padding: 20px;
     text-align: center;
-    border: 1px solid #d6e1ea;
-    box-shadow: 0px 5px 0px #0b2535;
-    transition: transform 0.3s ease;
+    border: none;
+    box-shadow: var(--sombra-suave);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .team-member:hover {
     transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
+
 .team-member img {
     width: 100px;
     height: 100px;
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 15px;
+    border: 3px solid #f0f0f0; /* Pequena borda na imagem */
 }
+
 .team-member a {
     display: block;
     font-weight: 600;
-    color: #0b2535;
+    color: var(--cor-primaria);
     text-decoration: none;
     font-size: 18px;
 }
+
 .team-member p {
     font-size: 14px;
-    color: #555;
+    color: var(--cor-texto-claro);
     margin-top: 5px;
 }
 
-.social-icons {
-    display: flex;
-    gap: 10px;
-    margin-top: 8px;
-}
-.social-icons a {
-    background-color: white;
-    color: #022636;
-    border-radius: 6px;
-    padding: 8px;
-    font-size: 20px;
-    transition: background-color 0.3s;
-    text-decoration: none;
-}
-.social-icons a:hover {
-    background-color: #00a7e1;
-    color: white;
-}
+/* Removido social-icons (não estava no HTML) */
 
 .rodape {
     background-color: #1a1a1a;
     color: #e0e0e0;
-    padding: 4rem 0;
+    padding: 4rem 2rem; /* Padding lateral */
+}
+
+.rodape .conteiner {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .rodape-conteiner {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: 2fr 1fr 1fr; /* Coluna de logo maior */
     gap: 3rem;
     margin-bottom: 3rem;
-    max-width: 100%;
 }
 
 .rodape .logo {
     color: #ffffff;
+    text-decoration: none;
 }
 
 .rodape h3 {
     color: #ffffff;
-    font-size: 1.4rem;
+    font-size: 1.25rem; /* 20px */
     margin-bottom: 1rem;
 }
 
 .rodape p {
     color: #a0a0a0;
     line-height: 1.6;
+    max-width: 350px; /* Limita largura texto */
 }
 
 .rodape ul {
@@ -285,9 +329,10 @@ section {
 .rodape ul a {
     color: #a0a0a0;
     display: block;
-    padding: 0.6rem 0;
-    font-size: 1.1rem;
+    padding: 0.5rem 0; /* Padding ajustado */
+    font-size: 1rem; /* 16px */
     transition: color 0.3s;
+    text-decoration: none;
 }
 
 .rodape ul a:hover {
@@ -295,9 +340,9 @@ section {
 }
 
 .rodape-redes-sociais a {
-    font-size: 1.5rem;
+    font-size: 1.25rem; /* 20px */
     color: #a0a0a0;
-    margin-right: 1rem;
+    margin-right: 1.25rem;
     transition: color 0.3s;
 }
 
@@ -310,64 +355,77 @@ section {
     border-top: 1px solid #333333;
     padding-top: 2rem;
     color: #a0a0a0;
+    font-size: 0.9rem;
 }
 
 
-
-/* Media Query para o Breakpoint do Menu
-  (A lógica original estava correta, apenas ajustei o display do .menu-toggle)
+/* *** MUDANÇA PRINCIPAL ***
+  Ajuste do Breakpoint do Menu para 600px
 */
-@media (max-width: 1014px) {
+@media (max-width: 600px) {
     .main-nav .menu-desktop {
         display: none; /* Oculta o menu desktop */
     }
 
     .menu-toggle {
-        display: flex; /* Exibe o botão hamburguer (alterado de 'block') */
+        display: flex; /* Exibe o botão hamburguer */
     }
     
     .main-nav .menu-wrapper {
         display: block; /* Permite que o wrapper seja exibido quando ativo */
     }
 
-    /* Ajusta o padding do header no mobile para não espremer o logo
-    */
     header {
-        padding: 0 20px;
+        padding: 0 20px; /* Padding mobile */
     }
 }
 
 
-/* Media Queries Adicionais (Originais)
-*/
+/* Media Queries Adicionais (Originais ajustados) */
 @media (max-width: 768px) {
     .team-member {
         width: 100%;
         max-width: 350px;
     }
-}
-@media (max-width: 768px) {
+    
+    .service-box {
+        width: 90%;
+        max-width: 350px;
+    }
+
     .main1 {
         flex-direction: column;
         align-items: center;
-    }
-    .main1 .text {
-        max-width: 100%;
         text-align: center;
+        margin-top: 20px;
     }
-    .service-box {
-        width: 90%;
+    
+    .main1 .text, .main1 .imagem {
+        width: 100%;
     }
-}
+    
+    .main1 .text h1 {
+        font-size: 36px;
+    }
+    
+    .main1 .text p {
+        font-size: 16px;
+    }
+    
+    .main1 .imagem {
+        margin-top: 20px;
+    }
 
-@media screen and (max-width: 760px) {
     .rodape-conteiner {
-        flex-direction: column;
-        align-items: center;
+        grid-template-columns: 1fr; /* Coluna única no rodapé */
         text-align: center;
     }
-
-    .rodape-coluna {
-        margin-bottom: 20px;
+    
+    .rodape p {
+        max-width: 100%;
+    }
+    
+    .rodape-redes-sociais {
+        margin-top: 10px;
     }
 }

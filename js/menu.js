@@ -1,15 +1,16 @@
 // Espera o HTML ser completamente carregado para executar o script
 document.addEventListener('DOMContentLoaded', () => {
 
-    // A função original, agora sem o 'export'
     function initHeaderMenu() {
         const mainNav = document.getElementById('main-nav');
         const menuToggle = document.getElementById('menu-toggle');
-        const navLinks = document.querySelectorAll('.radial-nav a');
+        // Seletor atualizado para os novos links do menu lateral
+        const navLinks = document.querySelectorAll('.menu-lateral-links a');
+        const menuWrapper = document.getElementById('menu-wrapper'); // Pega o painel
 
         // Verifica se os elementos essenciais existem
-        if (!mainNav || !menuToggle) {
-            console.warn("Header Menu: Elementos essenciais (main-nav, menu-toggle) não encontrados no DOM.");
+        if (!mainNav || !menuToggle || !menuWrapper) {
+            console.warn("Header Menu: Elementos essenciais (main-nav, menu-toggle, menu-wrapper) não encontrados no DOM.");
             return;
         }
 
@@ -44,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
             toggleMenu();
         });
 
+        // Adiciona evento de clique para fechar o menu ao clicar em um link
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 if (mainNav.classList.contains('is-active')) {
@@ -53,8 +55,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         document.addEventListener('click', (event) => {
-            // Fecha o menu se clicar fora do 'mainNav' E também fora do 'menuToggle'
-            if (mainNav.classList.contains('is-active') && !mainNav.contains(event.target) && !menuToggle.contains(event.target)) {
+            // Fecha o menu se clicar fora do 'menuWrapper' E também fora do 'menuToggle'
+            if (mainNav.classList.contains('is-active') && !menuWrapper.contains(event.target) && !menuToggle.contains(event.target)) {
                 toggleMenu();
             }
         });
