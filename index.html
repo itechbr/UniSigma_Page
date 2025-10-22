@@ -5,18 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consultoria</title>
     <link rel="stylesheet" href="./style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
 
 <header>
     <div class="logo">Logo</div>
-    <nav>
-        <a href="#sobre">Sobre nós</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#precos">Preços</a>
-        <a href="#faq">FAQ</a>
-        <button class="cta-button">Faça seu orçamento</button>
+
+    <nav id="main-nav" class="main-nav">
+
+        <nav class="menu-desktop">
+            <a href="#sobre">Sobre nós</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#precos">Preços</a>
+            <a href="#faq">FAQ</a>
+            <button class="cta-button">Faça seu orçamento</button>
+        </nav>
+
+        <div class="menu-wrapper">
+            <ul class="radial-nav" id="main-nav-links" style="--n: 6;">
+             <li style="--i: 1;"><a href="#" aria-label="Sobre"><i class="bx bx-user"></i></a></li>
+             <li style="--i: 2;"><a href="#" aria-label="Habilidades"><i class="bx bx-code-alt"></i></a></li>
+             <li style="--i: 3;"><a href="#" aria-label="Experiência"><i class='bx bx-briefcase-alt-2'></i></a></li>
+             <li style="--i: 4;"><a href="#" aria-label="Projetos"><i class="bx bx-folder"></i></a></li>
+             <li style="--i: 5;"><a href="#" aria-label="Certificados"><i class="bx bx-award"></i></a></li>
+             <li style="--i: 6;"><a href="#" aria-label="Contato"><i class="bx bx-envelope"></i></a></li>
+           </ul>
+        </div>
+
     </nav>
+
+    <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir Menu" aria-controls="main-nav-links" aria-expanded="false">
+        <div class="hamburger-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </button>
 </header>
 
 <main>
@@ -166,7 +191,7 @@
         </div>
         <div class="team-member">
             <img src="https://unisigma.com.br/_astro/andrey.CB22l2lC.jpeg" alt="Andrey Vasconcelos">
-            <a href="#">Andrey Vasconcelos</a>
+            <a href="#">Consultor de Adm-Fin</a>
             <p>Consultor de Adm-Fin</p>
         </div>
     </div>
@@ -202,5 +227,8 @@
 </footer>
 
 <script src="./index.js"></script>
+
+<script src="./menu.js"></script>
+
 </body>
 </html>
