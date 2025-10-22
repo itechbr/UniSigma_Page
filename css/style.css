@@ -1,9 +1,9 @@
 @import url(./header.css);
 
 :root {
-    --cor-primaria: #002244; /* Azul escuro do seu design original */
-    --cor-destaque: #f59e0b; /* Laranja/Âmbar para o CTA e destaques */
-    --header-altura: 70px;   /* Altura do header aumentada */
+    --cor-primaria: #002244; 
+    --cor-destaque: #f59e0b; 
+    --header-altura: 70px;   
 }
 
 body {
@@ -12,17 +12,10 @@ body {
     background-color: white;
     color: #333;
     overflow-x: hidden;
-    /* Adicionado para que o 'main' comece abaixo do header fixo */
     padding-top: var(--header-altura); 
 }
 
 
-
-/* Seção de Responsividade (Media Queries)
-*/
-
-/* O CSS restante original (main1, services, main3, footer) permanece aqui... */
-/* ... */
 section {
     margin-bottom: 40px;
 }
