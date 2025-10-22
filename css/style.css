@@ -41,14 +41,15 @@ section {
 .main1 .button {
     background-color: #003366;
     color: white;
-    padding: 22px 42px;
+    padding: 16px 32px;
     border: none;
     border-radius: 10px;
-    font-size: 22px;
+    font-size: 20px;
     font-family: sans-serif;
     cursor: pointer;
     transition: background-color 0.3s ease;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    margin-bottom: 35px;
 }
 .main1 .button:hover {
     transform: scale(1.05);
@@ -248,7 +249,7 @@ section {
 }
 
 .rodape {
-    background-color: #1a1a1a;
+    background-color: #120d13;
     color: #e0e0e0;
     padding: 4rem 0;
 }
@@ -292,6 +293,13 @@ section {
 
 .rodape ul a:hover {
     color: #ffffff;
+}
+
+.rodape img {
+    max-width: 180px;
+    height: auto;
+    margin-bottom: 0.3rem;
+    margin-left: 120px;
 }
 
 .rodape-redes-sociais a {
@@ -369,5 +377,9 @@ section {
 
     .rodape-coluna {
         margin-bottom: 20px;
+    }
+
+    .rodape img {
+        margin-left: 0;
     }
 }
