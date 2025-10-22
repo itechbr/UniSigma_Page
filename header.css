@@ -1,0 +1,273 @@
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    
+    /* Efeito "Glassmorphism" (vidro fosco) */
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    /* Mais espaço interno (vertical e horizontal) */
+    padding: 0 40px;
+    height: var(--header-altura);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Sombra mais suave */
+    z-index: 1000;
+    transition: top 0.3s;
+    box-sizing: border-box; /* Garante que o padding não afete a largura */
+}
+
+header.hidden {
+    top: -100px;
+}
+
+header .logo {
+    font-size: 24px; /* Tamanho aumentado */
+    font-weight: bold;
+    color: var(--cor-primaria); /* Cor primária */
+    text-decoration: none;
+}
+
+/* Estiliza o container da navegação principal 
+  (que contém tanto o menu desktop quanto o mobile) 
+*/
+header .main-nav {
+    display: flex;
+    align-items: center;
+}
+
+/* Estiliza especificamente os links do menu desktop.
+  (Usando a classe que definimos no HTML anterior)
+*/
+header .menu-desktop {
+    display: flex;
+    align-items: center;
+}
+
+header .menu-desktop a {
+    color: #333; /* Cor de texto mais escura para legibilidade */
+    margin: 0 15px; /* Mais espaçamento */
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+    font-size: 16px; /* Tamanho de fonte legível */
+    font-weight: 500;
+    padding: 5px 0;
+    
+    /* Remove a borda antiga */
+    /* border: #002244 1px solid; */ 
+}
+
+header .menu-desktop a:hover {
+    color: var(--cor-destaque); /* Cor de destaque no hover */
+}
+
+/* Efeito de sublinhado animado */
+header .menu-desktop a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0; /* Posição logo abaixo do texto */
+    width: 0;
+    height: 3px; /* Mais espesso */
+    background-color: var(--cor-destaque); /* Cor de destaque */
+    border-radius: 2px;
+    transition: width 0.35s ease-out; /* Transição mais suave */
+}
+
+header .menu-desktop a:hover::after {
+    width: 100%;
+}
+
+.cta-button {
+    background-color: var(--cor-destaque);
+    color: white;
+    padding: 12px 24px; /* Mais padding */
+    font-size: 16px;
+    font-weight: 700; /* Mais destaque */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    margin-left: 15px; /* Espaço do último link */
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.2); /* Sombra sutil da cor do botão */
+}
+
+.cta-button:hover {
+    background-color: #d97706; /* Laranja mais escuro no hover */
+    transform: scale(1.05); /* Efeito de "pop" mais forte */
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.3);
+}
+
+/* Oculta o botão hamburguer e o menu radial por padrão (desktop)
+*/
+.menu-toggle,
+.main-nav .menu-wrapper {
+    display: none;
+}
+
+
+/* Estilos do Botão Hamburguer (Menu Mobile)
+*/
+.menu-toggle {
+    /* Removemos 'position: fixed' 
+      Ele agora é um item flex dentro do header, o que é mais limpo.
+    */
+    background-color: var(--cor-primaria);
+    color: #fff;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: 1002; 
+}
+
+.menu-toggle:hover {
+    background-color: #003366; 
+    transform: scale(1.1);
+}
+
+.menu-toggle.is-active {
+    transform: rotate(180deg);
+}
+
+
+.hamburger-icon {
+    width: 24px; 
+    height: 18px; 
+    position: relative;
+}
+
+.hamburger-icon span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: #fff;
+    border-radius: 3px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Posições das 3 linhas */
+.hamburger-icon span:nth-child(1) { top: 0px; }
+.hamburger-icon span:nth-child(2) { top: 7px; /* Centralizado (18px - 3px) / 2 = 7.5px */ }
+.hamburger-icon span:nth-child(3) { top: 15px; /* Posição final (18px - 3px) */ }
+
+/* Animação para "X" (ativo) */
+.menu-toggle.is-active .hamburger-icon span:nth-child(1) {
+    top: 7px;
+    transform: rotate(135deg);
+}
+
+.menu-toggle.is-active .hamburger-icon span:nth-child(2) {
+    opacity: 0;
+    left: -30px; /* Anima para a esquerda */
+}
+
+.menu-toggle.is-active .hamburger-icon span:nth-child(3) {
+    top: 7px;
+    transform: rotate(-135deg);
+}
+
+/* Estilos do Menu Radial (Wrapper)
+*/
+.menu-wrapper {
+    position: fixed;
+    top: calc(var(--header-altura) + 10px); /* Abaixo do header (70px + 10px) */
+    right: 15px;
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px) scale(0.95);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+}
+
+.main-nav.is-active .menu-wrapper {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    pointer-events: all;
+}
+
+.radial-nav {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+    /* Efeito "Glass" refinado */
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15); /* Sombra mais difusa */
+}
+
+.radial-nav li {
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+/* Animação de entrada dos itens */
+.main-nav.is-active .radial-nav li {
+    animation: slideInLeft 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Delays escalonados */
+.main-nav.is-active .radial-nav li:nth-child(1) { animation-delay: 0.1s; }
+.main-nav.is-active .radial-nav li:nth-child(2) { animation-delay: 0.15s; }
+.main-nav.is-active .radial-nav li:nth-child(3) { animation-delay: 0.2s; }
+.main-nav.is-active .radial-nav li:nth-child(4) { animation-delay: 0.25s; }
+.main-nav.is-active .radial-nav li:nth-child(5) { animation-delay: 0.3s; }
+.main-nav.is-active .radial-nav li:nth-child(6) { animation-delay: 0.35s; }
+
+.radial-nav a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background-color: var(--cor-destaque); /* Cor de destaque */
+    color: #fff;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.radial-nav a:hover {
+    transform: scale(1.1);
+    background-color: #d97706; /* Laranja mais escuro */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
