@@ -1,9 +1,25 @@
-document.querySelectorAll('.team-buttons button').forEach(button => {
-    button.addEventListener('click', () => {
-        document.querySelectorAll('.team-buttons button').forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-
-        document.querySelectorAll('.team-section').forEach(section => section.classList.remove('active'));
-        document.getElementById(button.dataset.team).classList.add('active');
-    });
+document.addEventListener("DOMContentLoaded", () => {
+  const activeSection = document.querySelector(".team-section.active");
+  if (activeSection) {
+    activeSection.style.display = "flex";
+    activeSection.style.opacity = "1";
+    activeSection.style.transform = "translateY(0)";
+  }
 });
+
+
+// Footer para topo
+document.addEventListener("DOMContentLoaded", function () {
+    const scrollToTopTrigger = document.querySelector(".logo");
+
+    if (scrollToTopTrigger) {
+      scrollToTopTrigger.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        window.scrollTo({
+          top: 0,
+          behavior: ""
+        });
+      });
+    }
+  });

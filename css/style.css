@@ -23,6 +23,7 @@ section {
     display: flex;
     align-items: center;
     width: 100%;
+    margin-top: 80px;
 }
 /* ... (todo o resto do seu CSS original) ... */
 .main1 .text, .main1 .imagem {
@@ -38,23 +39,28 @@ section {
     font-size: 24px;
     margin-bottom: 20px;
 }
+
 .main1 .button {
-    background-color: #003366;
-    color: white;
-    padding: 16px 32px;
-    border: none;
-    border-radius: 10px;
-    font-size: 20px;
-    font-family: sans-serif;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-    margin-bottom: 35px;
+  background-color: #003366;
+  color: white;
+  padding: 16px 32px;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  font-family: sans-serif;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  margin-bottom: 35px;
+
+  /* Transição unificada para hover e retorno */
+  transition: background-color 0.5s ease, transform 0.5s ease;
 }
+
 .main1 .button:hover {
-    transform: scale(1.05);
-    background-color: #002244;
+  transform: scale(1.05);
+  background-color: #002244;
 }
+
 .main1 img {
     max-width: 100%;
     height: auto;
@@ -90,6 +96,7 @@ section {
     transition: transform 0.3s, box-shadow 0.3s;
     text-align: left;
 }
+
 .service-box:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
@@ -215,19 +222,64 @@ section {
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 15px;
+    transition: 0.3s ease;
 }
+
+.team-member img:hover {
+    transform: scale(1.05);
+}
+
 .team-member a {
     display: block;
     font-weight: 600;
     color: #0b2535;
     text-decoration: none;
     font-size: 18px;
+    transition: color 0.3s;
 }
+
+.team-member a:hover {
+  color: var(--cor-destaque);
+}
+
 .team-member p {
     font-size: 14px;
     color: #555;
     margin-top: 5px;
 }
+
+@keyframes slideOutLeft {
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(-100px); }
+}
+
+@keyframes slideOutRight {
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(100px); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-100px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(100px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.team-section {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.team-section.active {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 .social-icons {
     display: flex;
@@ -296,21 +348,48 @@ section {
 }
 
 .rodape img {
-    max-width: 180px;
+    max-width: 220px;
     height: auto;
-    margin-bottom: 0.3rem;
-    margin-left: 120px;
+    margin-bottom: -60px;
+    margin-top: -20px;
+    margin-left: 0px;
+}
+
+.rodape-redes-sociais {
+  display: flex;
+  justify-content: center; /* Alinha horizontalmente */
+  align-items: center;
+  margin-top: 1rem;
+  gap: 20px;
 }
 
 .rodape-redes-sociais a {
-    font-size: 1.5rem;
-    color: #a0a0a0;
-    margin-right: 1rem;
-    transition: color 0.3s;
+  font-size: 32px; /* Ícones maiores */
+  color: #e0e0e0; /* Cor padrão do rodapé */
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.rodape-redes-sociais a:hover {
-    color: #ffffff;
+/* Hover com cores oficiais */
+.rodape-redes-sociais a[aria-label="LinkedIn"]:hover {
+  color: #0077b5;
+}
+
+.rodape-redes-sociais a[aria-label="Telegram"]:hover {
+  color: #0088cc;
+}
+
+.rodape-redes-sociais a[aria-label="Instagram"]:hover {
+  color: #e1306c;
+}
+
+.rodape-redes-sociais a[aria-label="WhatsApp"]:hover {
+  color: #25d366;
+}
+
+.rodape-coluna:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .rodape-copyright {

@@ -6,11 +6,12 @@
     <title>Consultoria</title>
     <link rel="stylesheet" href="./css/style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-<body>
+<body id="top">
 
 <header>
-    <div class="logo">Logo</div>
+    <div class="header-logo">Logo</div>
 
     <nav id="main-nav" class="main-nav">
 
@@ -211,45 +212,66 @@
 </section>
 
 <footer class="rodape">
-    <div class="conteiner">
-        <div class="rodape-conteiner">
-            <div class="rodape-coluna">
-                <a href="{{ url_for('public.home') }}" class="logo">
-                    <img src="./IMG/logo_cinza.png" alt="UniSigma Logo">
-                </a>
-                <p>Transformamos desafios em oportunidades por meio de soluções estratégicas e personalizadas</p>
-                <div class="rodape-redes-sociais">
-                    <a href="#" aria-label="Siga-nos no Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" aria-label="Siga-nos no Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="Siga-nos no Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Inscreva-se no Youtube"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            <div class="rodape-coluna">
-                <h3>Navegação</h3>
-                <ul>
-                    <li><a href="#tipos-fones">Estilos</a></li>
-                    <li><a href="#sobre">Sobre</a></li>
-                    <li><a href="#depoimentos">Depoimentos</a></li>
-                </ul>
-            </div>
-            <div class="rodape-coluna">
-                <h3>Ajuda e Suporte</h3>
-                <ul>
-                    <li><a href="#faq">FAQ</a></li>
-                    <li><a href="#">Contato</a></li>
-                    <li><a href="#">Termos de Uso</a></li>
-                    <li><a href="#">Política de Privacidade</a></li>
-                </ul>
-            </div>
+  <div class="conteiner">
+    <div class="rodape-conteiner">
+      <div class="rodape-coluna">
+        <a href="#top" class="logo">
+          <img src="./IMG/logo_cinza.png" alt="UniSigma Logo">
+        </a>
+
+        <!-- Redes sociais abaixo da logo com links reais -->
+        <div class="rodape-redes-sociais">
+          <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://telegram.org" target="_blank" aria-label="Telegram">
+            <i class="fab fa-telegram"></i>
+          </a>
+          <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.whatsapp.com" target="_blank" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
         </div>
-        <p class="rodape-copyright">Copyright © 2025 UniSigma Consultoria </br> Todos os direitos reservados</p>
+      </div>
+
+      <div class="rodape-coluna">
+        <h3>Navegação</h3>
+        <ul>
+          <li><a href="#tipos-fones">Estilos</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+        </ul>
+      </div>
+
+      <div class="rodape-coluna">
+        <h3>Ajuda e Suporte</h3>
+        <ul>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#">Contato</a></li>
+          <li><a href="#">Termos de Uso</a></li>
+          <li><a href="#">Política de Privacidade</a></li>
+        </ul>
+      </div>
     </div>
+
+    <p class="rodape-copyright">
+      Copyright © 2025 UniSigma Consultoria <br> Todos os direitos reservados
+    </p>
+  </div>
 </footer>
+
 
 <script src="./js/index.js"></script>
 
 <script src="./js/menu.js"></script>
+
+<script src="./js/header.js"></script>
+
+<script src="./js/main.js"></script>
+
+<script src="./js/footer.js"></script>
 
 </body>
 </html>
