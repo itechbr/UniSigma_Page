@@ -112,6 +112,20 @@ header .menu-desktop a:hover::after {
     display: none;
 }
 
+/* Exibe o menu hamburguer e o menu radial em telas menores */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .main-nav .menu-wrapper {
+        display: block;
+    }
+
+    header .menu-desktop {
+        display: none;
+    }
+}
 
 /* Estilos do Botão Hamburguer (Menu Mobile)
 */
@@ -127,7 +141,6 @@ header .menu-desktop a:hover::after {
     border: none;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     cursor: pointer;
-    display: flex; 
     align-items: center;
     justify-content: center;
     transition: background-color 0.3s ease, transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
