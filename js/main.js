@@ -1,3 +1,25 @@
+//MAIN1 - Animação de entrada para o cabeçalho
+  document.addEventListener("DOMContentLoaded", () => {
+    const text = document.querySelector(".main1 .text");
+    const image = document.querySelector(".main1 .imagem");
+
+    text.style.opacity = "0";
+    text.style.transform = "translateX(-80px)";
+    image.style.opacity = "0";
+    image.style.transform = "translateX(80px)";
+
+    setTimeout(() => {
+      text.style.transition = "opacity 0.8s ease, transform 0.8s ease";
+      image.style.transition = "opacity 0.8s ease, transform 0.8s ease";
+
+      text.style.opacity = "1";
+      text.style.transform = "translateX(0)";
+      image.style.opacity = "1";
+      image.style.transform = "translateX(0)";
+    }, 200);
+  });
+
+
 //MAIN2 - Animação de entrada para as caixas de serviço
 document.addEventListener("DOMContentLoaded", () => {
   const serviceBoxes = document.querySelectorAll(".service-box");

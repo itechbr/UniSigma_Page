@@ -1,5 +1,3 @@
-export default {}; // To treat this file as a module
-
 document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector("header");
   header.style.transform = "translateY(-100%)";
